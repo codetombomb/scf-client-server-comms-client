@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+import BooksContainer from './components/BooksContainer/BooksContainer';
 
 function App() {
+  const [books, setBooks] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:3000/books")
+      .then(response => response.json())
+      .then(books => setBooks([...books]))
+    },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BooksContainer books={books} hello="hello"/>
     </div>
   );
 }
+// BooksContainer({books: [...]})
 
 export default App;
