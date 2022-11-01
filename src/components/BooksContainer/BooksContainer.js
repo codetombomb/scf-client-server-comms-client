@@ -1,9 +1,9 @@
 import BookCard from "../BookCard/BookCard";
+import './BooksContainer.css'
 
 function BooksContainer({ books }) {
   return (
-    <div>
-      {[<BookCard></BookCard>, <BookCard></BookCard>, <BookCard></BookCard>]}
+    <div className="books-container">
       {books.map((book) => {
         return (
           <BookCard

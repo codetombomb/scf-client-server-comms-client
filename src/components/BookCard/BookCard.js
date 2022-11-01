@@ -1,9 +1,10 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import './BookCard.css'
 
 function BookCard({ title, author, description, coverUrl }) {
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card className="book-card" style={{ width: "18rem" }}>
       <Card.Img variant="top" src={coverUrl} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
